@@ -10,28 +10,13 @@ python main.py
 
 The server will start on port 8000 with both REST and MCP endpoints.
 
-### 2. Verify MCP Endpoints
-
-Run the automated test suite:
-
-```bash
-python test_mcp.py
-```
-
-This will test:
-- ✅ MCP initialization
-- ✅ Tool discovery (tools/list)
-- ✅ Tool execution (get_zabbix_version)
-- ✅ Tool execution with parameters (get_hosts)
-- ✅ SSE streaming endpoint
-
-### 3. Manual Testing with curl
+### 2. Test MCP Endpoints with curl
 
 **Test MCP initialization:**
 ```bash
 curl -X POST http://localhost:8000/mcp \
   -H "Content-Type: application/json" \
-  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0"}}}'
+  -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1.0.0"}}}'
 ```
 
 **Get list of available tools:**
@@ -62,7 +47,7 @@ curl http://localhost:8000/sse
 # (connection stays open - press Ctrl+C to close)
 ```
 
-### 4. Configure Claude Desktop
+### 3. Configure Claude Desktop
 
 1. Find your Claude Desktop config file:
    - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
@@ -88,7 +73,7 @@ curl http://localhost:8000/sse
 
 4. In Claude, you should now see "Zabbix" available as a tool source
 
-### 5. Test with Claude Desktop
+### 4. Test with Claude Desktop
 
 Once configured, you can ask Claude things like:
 - "What version of Zabbix are we running?"

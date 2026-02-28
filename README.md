@@ -11,7 +11,7 @@ MCP (Model Context Protocol) server to connect LLM systems with Zabbix via REST 
 - **Zabbix JSON-RPC Client**: Complete communication with Zabbix API
 - **Managed Authentication**: Support for API tokens or username/password with automatic renewal
 - **Read-Only Mode**: Optional security feature to prevent write operations on Zabbix
-- **Complete API**: Over 50 endpoints for all Zabbix operations
+- **Complete API**: Over 40 endpoints for all Zabbix operations
   - **Full CRUD** for hosts, items, triggers, templates, host groups
   - **Monitoring**: Problems, history, trends, events, alerts
   - **Automation**: Maintenance, actions, scripts, discovery
@@ -107,7 +107,7 @@ Once the server is started, you can access the interactive documentation:
 - **ReDoc**: http://localhost:8000/redoc
 - **OpenAPI Schema**: http://localhost:8000/openapi.json
 
-## � Read-Only Mode
+## 🔒 Read-Only Mode
 
 The server supports a **read-only mode** that prevents any write operations on Zabbix. This is useful for:
 - **Security**: Prevent accidental modifications to your monitoring infrastructure
@@ -293,7 +293,8 @@ This server supports **both OpenAPI REST and MCP** simultaneously:
 - AI-optimized tool descriptions
 
 Both protocols respect the `ZABBIX_READONLY` configuration. Choose the protocol that best fits your use case.
-## �🔌 Main Endpoints
+
+## 🔌 Main Endpoints
 
 ### System
 - `GET /health` - Server health check
@@ -511,7 +512,12 @@ ZABBIX-MCP/
 ├── requirements.txt              # Python dependencies
 ├── .env.example                  # Configuration template
 ├── mcp.json                      # Claude Desktop MCP configuration
+├── README.md                     # This documentation
+├── LLM_GUIDE.md                  # Guide for LLM systems on endpoint usage
+├── MCP_QUICKSTART.md             # Quick start guide for MCP integration
+├── LICENSE                       # MIT License
 ├── routers/                      # API route modules
+│   ├── __init__.py
 │   ├── hosts.py
 │   ├── items.py
 │   ├── triggers.py
@@ -519,7 +525,7 @@ ZABBIX-MCP/
 │   ├── history.py
 │   ├── system.py
 │   └── other.py
-└── README.md                     # This documentation
+└── .env                          # Local configuration (not committed)
 ```
 
 ### Adding New Endpoints
