@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "zabbix": {
+      "url": "http://localhost:8000/sse"
+    }
+  }
+}
